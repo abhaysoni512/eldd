@@ -73,11 +73,11 @@ static __init int pchar_init(void) {
         goto cdev_add_failed;
     }
     printk(KERN_INFO "%s: cdev_add() added device in kernel db.\n", THIS_MODULE->name);
-
+    init_waitqueue_head(&rd_wq);
+    printk(KERN_INFO "%s: init_waitqueue_head() reader wait queue.\n", THIS_MODULE->name);	
     init_waitqueue_head(&wr_wq);
     printk(KERN_INFO "%s: init_waitqueue_head() writer wait queue.\n", THIS_MODULE->name);
-    init_waitqueue_head(&rd_wq);
-    printk(KERN_INFO "%s: init_waitqueue_head() reader wait queue.\n", THIS_MODULE->name);
+   
     return 0;
 cdev_add_failed:
     device_destroy(pclass, devno);
@@ -119,7 +119,9 @@ static int pchar_close(struct inode *pinode, struct file *pfile) {
 static ssize_t pchar_read(struct file *pfile, char *ubuf, size_t size, loff_t *poffset) {
     int nbytes, ret;
     printk(KERN_INFO "%s: pchar_read() called.\n", THIS_MODULE->name);
+    // process will be woken up when there is data to read from the buffer.
     ret = wait_event_interruptible(rd_wq, !kfifo_is_empty(&buf)); // interruptible sleep
+    
     if(ret != 0) {
         printk(KERN_INFO "%s: pchar_read() wake-up due to signal.\n", THIS_MODULE->name);
         return -ERESTARTSYS;
@@ -157,6 +159,7 @@ static ssize_t pchar_write(struct file *pfile, const char *ubuf, size_t size, lo
     if(nbytes > 0)
         wake_up_interruptible(&rd_wq);
     return nbytes;
+    
 }
 
 module_init(pchar_init);
