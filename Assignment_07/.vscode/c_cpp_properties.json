@@ -1,18 +1,18 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Drivers",
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/lib/gcc/x86_64-linux-gnu/11/include",
-                "/lib/modules/6.1.10-Abhay/build/arch/x86/include",
-                "/lib/modules/6.1.10-Abhay/build/arch/x86/include/generated",
-                "/lib/modules/6.1.10-Abhay/build/include",
-                "/lib/modules/6.1.10-Abhay/build/arch/x86/include/uapi",
-                "/lib/modules/6.1.10-Abhay/build/arch/x86/include/generated/uapi",
-                "/lib/modules/6.1.10-Abhay/build/include/uapi",
-                "/lib/modules/6.1.10-Abhay/build/include/generated/uapi",
-                "/home/sunbeam/Desktop/Exam_Practice/ELDD/Demopractice",
+                "/lib/modules/6.1.10-DESD/build/arch/x86/include",
+                "/lib/modules/6.1.10-DESD/build/arch/x86/include/generated",
+                "/lib/modules/6.1.10-DESD/build/include",
+                "/lib/modules/6.1.10-DESD/build/arch/x86/include/uapi",
+                "/lib/modules/6.1.10-DESD/build/arch/x86/include/generated/uapi",
+                "/lib/modules/6.1.10-DESD/build/include/uapi",
+                "/lib/modules/6.1.10-DESD/build/include/generated/uapi",
+                "/home/sunbeam/Desktop/my_practise/eldd",
                 "/usr/src/linux-hwe-6.5-headers-6.5.0-35//include/linux"
             ],
             "forcedInclude": [

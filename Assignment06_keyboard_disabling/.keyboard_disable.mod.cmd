@@ -1,0 +1,1 @@
+cmd_/home/sunbeam/Desktop/Exam_Practice/ELDD/Assignment/Assignment06_keyboard_disabling/keyboard_disable.mod := printf '%s\n'   keyboard_disable.o | awk '!x[$$0]++ { print("/home/sunbeam/Desktop/Exam_Practice/ELDD/Assignment/Assignment06_keyboard_disabling/"$$0) }' > /home/sunbeam/Desktop/Exam_Practice/ELDD/Assignment/Assignment06_keyboard_disabling/keyboard_disable.mod

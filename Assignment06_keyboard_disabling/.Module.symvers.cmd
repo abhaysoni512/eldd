@@ -1,0 +1,1 @@
+cmd_/home/sunbeam/Desktop/Exam_Practice/ELDD/Assignment/Assignment06_keyboard_disabling/Module.symvers :=  sed 's/ko$$/o/'  /home/sunbeam/Desktop/Exam_Practice/ELDD/Assignment/Assignment06_keyboard_disabling/modules.order | scripts/mod/modpost -m -a    -o /home/sunbeam/Desktop/Exam_Practice/ELDD/Assignment/Assignment06_keyboard_disabling/Module.symvers -e -i Module.symvers -T - 
